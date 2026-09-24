@@ -24,6 +24,12 @@ body {
   color: #fff;
 }
 
+p {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+}
+
 .home-hero {
   min-height: 100svh;
 }

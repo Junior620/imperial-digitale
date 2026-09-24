@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { GlassButton } from '../components/GlassButton'
 import { LiquidCard } from '../components/LiquidCard'
 import { Section, SectionLabel, SectionTitle } from '../components/Section'
@@ -9,37 +9,25 @@ import { usePageMeta } from '../hooks/usePageMeta'
 export function Home() {
   usePageMeta('home')
   const { dict } = useLanguage()
-  const [isDesktop, setIsDesktop] = useState(true)
-
-  useEffect(() => {
-    const mq = window.matchMedia('(min-width: 768px)')
-    const update = () => setIsDesktop(mq.matches)
-    update()
-    mq.addEventListener('change', update)
-    return () => mq.removeEventListener('change', update)
-  }, [])
+  const [videoReady, setVideoReady] = useState(false)
 
   return (
     <>
       {/* 01 HERO */}
-      <section className="home-hero relative flex flex-col overflow-hidden">
-        {isDesktop ? (
-          <video
-            className="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover"
-            src={VIDEO_URL}
-            poster={images.heroPoster}
-            autoPlay
-            muted
-            loop
-            playsInline
-          />
-        ) : (
-          <img
-            src={images.heroMobile}
-            alt=""
-            className="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover"
-          />
-        )}
+      <section className="home-hero relative flex flex-col overflow-hidden bg-black">
+        <video
+          className={`pointer-events-none absolute inset-0 z-0 h-full w-full object-cover transition-opacity duration-700 ${
+            videoReady ? 'opacity-100' : 'opacity-0'
+          }`}
+          src={VIDEO_URL}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          onCanPlay={() => setVideoReady(true)}
+          onLoadedData={() => setVideoReady(true)}
+        />
         <div className="blur-mask-overlay pointer-events-none absolute inset-0 z-[1]" />
 
         <div className="relative z-10 flex flex-1 flex-col justify-end px-4 pb-10 pt-28 sm:px-6 md:px-12 md:pb-16">
