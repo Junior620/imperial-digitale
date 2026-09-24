@@ -76,7 +76,7 @@ export function Approach() {
           {dict.approach.differs.map((item, i) => (
             <li
               key={item}
-              className="border border-white/10 bg-white/[0.02] p-6 text-base text-gray-300"
+              className="prose-justify border border-white/10 bg-white/[0.02] p-6 text-base text-gray-300"
             >
               <span className="mb-3 block text-xs text-gold">
                 {String(i + 1).padStart(2, '0')}

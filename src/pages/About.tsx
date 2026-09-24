@@ -95,7 +95,7 @@ export function About() {
           {a.principles.map((principle, i) => (
             <li
               key={principle}
-              className="border-l border-gold/40 py-2 pl-5 text-base text-gray-300"
+              className="prose-justify border-l border-gold/40 py-2 pl-5 text-base text-gray-300"
             >
               <span className="mr-3 text-xs text-gold">
                 {String(i + 1).padStart(2, '0')}

@@ -24,10 +24,29 @@ body {
   color: #fff;
 }
 
-p {
+p,
+li,
+dd,
+.prose-justify {
   text-align: justify;
   text-justify: inter-word;
   hyphens: auto;
+}
+
+/* Keep short UI labels / titles left-aligned */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+nav,
+button,
+label,
+th,
+.section-label {
+  text-align: left;
+  hyphens: manual;
 }
 
 .home-hero {

@@ -162,7 +162,7 @@ export function Home() {
                 {String(i + 1).padStart(2, '0')}
               </span>
               <span
-                className="text-xl font-normal text-white sm:text-2xl md:text-3xl"
+                className="prose-justify text-xl font-normal text-white sm:text-2xl md:text-3xl"
                 style={{ letterSpacing: '-0.02em' }}
               >
                 {outcome}
